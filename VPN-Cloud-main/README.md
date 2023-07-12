@@ -34,18 +34,11 @@ Además, incluye la posibilidad de desplegar una VPC desde otra cuenta de AWS y 
 - La Route53 Resolver Rule que permite la resolución de DNS hacia las VPC: _MyAWSRule_
 
 
-Estos tres recursos deben ser compartidos desde la cuenta que aloja el Resolver para la cuenta desde la que se desea desplegar la VPC en específico. Luego, deben ser aceptados desde la cuenta desde la que se desea desplegar la VPC. Una vez hecho, se debe ejecutar el comando `python3 despliegueNubeOtherAcc.py`. El script está diseñado para que se despliegue la arquitectura principal desde la cuenta de AWS de DEA, y la VPC de otra cuenta desde la cuenta de IA.
+Estos tres recursos deben ser compartidos desde la cuenta que aloja el Resolver para la cuenta desde la que se desea desplegar la VPC en específico. Luego, deben ser aceptados desde la cuenta desde la que se desea desplegar la VPC. Una vez hecho, se debe ejecutar el comando `python3 despliegueNubeOtherAcc.py`. 
 
 <div style="text-align:center">
  <img src="./assets/arquitecturaDNS.png" alt="Arquitectura con DNS centralizado" width="700">
 </div>
-
-**BORRADO DE INFRAESTRUCTURA**
-
-Si se despliega la infraestructura usando gestionDNSCentralizado, se debe borrar manualmente:
-1. Primero, borrar las instancias o demás recursos que se hayan desplegado manualmente después del despliegue (que hayas desplegado tú, no el script)
-2. Borrar las Hosted Zones desde Route 53 (onprem.iic, zone1.awscloud.iic y zone2.awscloud.iic)
-3. Borrar los stacks de CloudFormation en este orden: vpc-nube1 y vpc-2 primero, luego vpn-server, luego vpc-dns y finalmente vpc-onpremise
 
 
 
